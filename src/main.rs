@@ -34,5 +34,13 @@ readable.
 */
 fn main(){for i in 1..101{let f=i%3<1;let b=i%5<1;if f{print!("Fizz")}if b{print!("Buzz")}if!(f|b){print!("{i}")}println!()}}
 
-// Another way in 192 chars
-// fn d(a:i32,b:i32)->bool{a&b==0}fn fizz_buzz(){for i in 1..100{let mut s=format!("");if d(i,3){s=format!("Fizz");}if d(i,5){s+="Buzz";}println!("{}",if s.is_empty(){format!("{i}")} else{s});}}
+/// # An even smaller `main()` function
+///
+/// Using an import alias and macro, we can slim down the `main()` function
+/// further.  Yet, the boilerplate syntax actually makes the total number of
+/// characters in the code larger.
+use std::print as p;
+use std::println as n;
+macro_rules! l{($b:tt,$i:tt,$x:tt)=>{let$b=$i%$x<1;};}
+// Smallest main() function: 103 chars
+fn pain(){for i in 1..101{l!(f,i,3);l!(b,i,5);if f{p!("Fizz")}if b{p!("Buzz")}if!(f|b){p!("{i}")}n!()}}
