@@ -36,6 +36,14 @@
 <a href="#36" id="36">36</a>
 <a href="#37" id="37">37</a>
 <a href="#38" id="38">38</a>
+<a href="#39" id="39">39</a>
+<a href="#40" id="40">40</a>
+<a href="#41" id="41">41</a>
+<a href="#42" id="42">42</a>
+<a href="#43" id="43">43</a>
+<a href="#44" id="44">44</a>
+<a href="#45" id="45">45</a>
+<a href="#46" id="46">46</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/*! # FizzBuzz Code Golf
 
 Consider the following problem:
@@ -55,7 +63,7 @@ Source: [HackerRank: FizzBuzz][1]
 */
 
 /**
-# Rust `FizzBuzz` in 151 chars
+# Rust `FizzBuzz` in 125 chars
 
 This is hideous.  Normally we would never want or need such minified code,
 except in the [silly][1] competition known as &quot;Code Golf&quot;.
@@ -70,8 +78,15 @@ readable.
 [1]:
     https://web.archive.org/web/20230914220048if_/https://i.pinimg.com/736x/b4/fb/cd/b4fbcdd779d811a2b2493a0d7b3929a2--fantasy-quotes-monty-python.jpg
 */
-</span><span class="kw">fn </span>main() {<span class="kw">for </span>i <span class="kw">in </span><span class="number">1</span>..<span class="number">101</span>{<span class="kw">let </span>f=i%<span class="number">3</span>==<span class="number">0</span>;<span class="kw">let </span>b=i%<span class="number">5</span>==<span class="number">0</span>;<span class="kw">let </span>fb=f&amp;&amp;b;<span class="kw">if </span>f{<span class="macro">print!</span>(<span class="string">&quot;Fizz&quot;</span>);}<span class="kw">if </span>b{<span class="macro">print!</span>(<span class="string">&quot;Buzz&quot;</span>);}<span class="kw">if </span>!fb&amp;&amp;!f&amp;&amp;!b{<span class="macro">print!</span>(<span class="string">&quot;{i}&quot;</span>);}<span class="macro">println!</span>();}}
+</span><span class="kw">fn </span>main(){<span class="kw">for </span>i <span class="kw">in </span><span class="number">1</span>..<span class="number">101</span>{<span class="kw">let </span>f=i%<span class="number">3</span>&lt;<span class="number">1</span>;<span class="kw">let </span>b=i%<span class="number">5</span>&lt;<span class="number">1</span>;<span class="kw">if </span>f{<span class="macro">print!</span>(<span class="string">&quot;Fizz&quot;</span>)}<span class="kw">if </span>b{<span class="macro">print!</span>(<span class="string">&quot;Buzz&quot;</span>)}<span class="macro">if!</span>(f|b){<span class="macro">print!</span>(<span class="string">&quot;{i}&quot;</span>)}<span class="macro">println!</span>()}}
 
-<span class="comment">// Another way in 192 chars
-// fn d(a:i32,b:i32)-&gt;bool{a&amp;b==0}fn fizz_buzz(){for i in 1..100{let mut s=format!(&quot;&quot;);if d(i,3){s=format!(&quot;Fizz&quot;);}if d(i,5){s+=&quot;Buzz&quot;;}println!(&quot;{}&quot;,if s.is_empty(){format!(&quot;{i}&quot;)} else{s});}}
-</span></code></pre></div></section></main></body></html>
+<span class="doccomment">/// # An even smaller `main()` function
+///
+/// Using an import alias and macro, we can slim down the `main()` function
+/// further.  Yet, the boilerplate syntax actually makes the total number of
+/// characters in the code larger.
+</span><span class="kw">use </span>std::print <span class="kw">as </span>p;
+<span class="kw">use </span>std::println <span class="kw">as </span>n;
+<span class="macro">macro_rules! </span>l{(<span class="macro-nonterminal">$b</span>:tt,<span class="macro-nonterminal">$i</span>:tt,<span class="macro-nonterminal">$x</span>:tt)=&gt;{<span class="kw">let</span><span class="macro-nonterminal">$b</span>=<span class="macro-nonterminal">$i</span>%<span class="macro-nonterminal">$x</span>&lt;<span class="number">1</span>;};}
+<span class="comment">// Smallest main() function: 103 chars
+</span><span class="kw">fn </span>pain(){<span class="kw">for </span>i <span class="kw">in </span><span class="number">1</span>..<span class="number">101</span>{<span class="macro">l!</span>(f,i,<span class="number">3</span>);<span class="macro">l!</span>(b,i,<span class="number">5</span>);<span class="kw">if </span>f{<span class="macro">p!</span>(<span class="string">&quot;Fizz&quot;</span>)}<span class="kw">if </span>b{<span class="macro">p!</span>(<span class="string">&quot;Buzz&quot;</span>)}<span class="macro">if!</span>(f|b){<span class="macro">p!</span>(<span class="string">&quot;{i}&quot;</span>)}<span class="macro">n!</span>()}}</code></pre></div></section></main></body></html>
