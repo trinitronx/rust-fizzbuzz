@@ -33,6 +33,9 @@
 <a href="#33" id="33">33</a>
 <a href="#34" id="34">34</a>
 <a href="#35" id="35">35</a>
+<a href="#36" id="36">36</a>
+<a href="#37" id="37">37</a>
+<a href="#38" id="38">38</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/*! # FizzBuzz Code Golf
 
 Consider the following problem:
@@ -55,7 +58,7 @@ Source: [HackerRank: FizzBuzz][1]
 # Rust `FizzBuzz` in 151 chars
 
 This is hideous.  Normally we would never want or need such minified code,
-except in the silly competition known as &quot;Code Golf&quot;.
+except in the [silly][1] competition known as &quot;Code Golf&quot;.
 
 Rust apparently allows for removing whitespace from code, to minify it in a
 similar way as JavaScript, another language sometimes similar to BrainFuck
@@ -63,6 +66,9 @@ which allows us to write hideously minified code.
 
 Running `rustfmt` on this suffers the whitespace penalty, but does make it more
 readable.
+
+[1]:
+    https://web.archive.org/web/20230914220048if_/https://i.pinimg.com/736x/b4/fb/cd/b4fbcdd779d811a2b2493a0d7b3929a2--fantasy-quotes-monty-python.jpg
 */
 </span><span class="kw">fn </span>main() {<span class="kw">for </span>i <span class="kw">in </span><span class="number">1</span>..<span class="number">101</span>{<span class="kw">let </span>f=i%<span class="number">3</span>==<span class="number">0</span>;<span class="kw">let </span>b=i%<span class="number">5</span>==<span class="number">0</span>;<span class="kw">let </span>fb=f&amp;&amp;b;<span class="kw">if </span>f{<span class="macro">print!</span>(<span class="string">&quot;Fizz&quot;</span>);}<span class="kw">if </span>b{<span class="macro">print!</span>(<span class="string">&quot;Buzz&quot;</span>);}<span class="kw">if </span>!fb&amp;&amp;!f&amp;&amp;!b{<span class="macro">print!</span>(<span class="string">&quot;{i}&quot;</span>);}<span class="macro">println!</span>();}}
 
