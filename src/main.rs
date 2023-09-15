@@ -50,12 +50,19 @@ use std::println as n;
 ///     let a=i%3<1;
 ///
 macro_rules! l{($b:tt,$i:tt,$x:tt)=>{let$b=$i%$x<1;};}
-/// # An even smaller `main()` function
+
+/// # Macro to print "`Fizz`"
 ///
-/// Using an import alias and macro [`l`], we can slim down the `main()` function
-/// further.  Yet, the boilerplate syntax actually makes the total number of
-/// characters in the code larger.
+/// This macro is designed to shorten `println!("Fizz")`
+macro_rules! F{()=>{p!("Fizz")};}
+/// # Macro to print "`Buzz`"
 ///
-/// [1]: macro.l.html
-// Smallest main() function: 103 chars
-fn pain(){for i in 1..101{l!(f,i,3);l!(b,i,5);if f{p!("Fizz")}if b{p!("Buzz")}if!(f|b){p!("{i}")}n!()}}
+/// This macro is designed to shorten `println!("Buzz")`
+macro_rules! B{()=>{p!("Buzz")};}
+/// # An even smaller `main()` function (91 chars)
+///
+/// Using an import alias and macros [`l`], [`F`], and [`B`], we can slim down
+/// the `main()` function further.  Yet, the boilerplate syntax actually makes
+/// the total number of characters in the code larger.
+// Smallest main() function: 91 chars
+fn pain(){for i in 1..101{l!(f,i,3);l!(b,i,5);if f{F!()}if b{B!()}if!(f|b){p!("{i}")}n!()}}
