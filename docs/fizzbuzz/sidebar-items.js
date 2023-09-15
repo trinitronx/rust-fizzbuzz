@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["main","pain"],"macro":["l"]};
+window.SIDEBAR_ITEMS = {"fn":["main","pain"],"macro":["B","F","l"]};
