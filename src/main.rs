@@ -17,7 +17,7 @@ Source: [HackerRank: FizzBuzz][1]
 */
 
 /**
-# Rust `FizzBuzz` in 137 chars
+# Rust `FizzBuzz` in 129 chars
 
 This is hideous.  Normally we would never want or need such minified code,
 except in the [silly][1] competition known as "Code Golf".
@@ -32,7 +32,7 @@ readable.
 [1]:
     https://web.archive.org/web/20230914220048if_/https://i.pinimg.com/736x/b4/fb/cd/b4fbcdd779d811a2b2493a0d7b3929a2--fantasy-quotes-monty-python.jpg
 */
-fn main(){for i in 1..101{let f=i%3<1;let b=i%5<1;if f{print!("Fizz");}if b{print!("Buzz");}if !(f&&b||f||b){print!("{i}");}println!();}}
+fn main(){for i in 1..101{let f=i%3<1;let b=i%5<1;if f{print!("Fizz");}if b{print!("Buzz");}if!(f|b){print!("{i}");}println!();}}
 
 // Another way in 192 chars
 // fn d(a:i32,b:i32)->bool{a&b==0}fn fizz_buzz(){for i in 1..100{let mut s=format!("");if d(i,3){s=format!("Fizz");}if d(i,5){s+="Buzz";}println!("{}",if s.is_empty(){format!("{i}")} else{s});}}
