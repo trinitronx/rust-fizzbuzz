@@ -20,7 +20,7 @@ Source: [HackerRank: FizzBuzz][1]
 # Rust `FizzBuzz` in 151 chars
 
 This is hideous.  Normally we would never want or need such minified code,
-except in the silly competition known as "Code Golf".
+except in the [silly][1] competition known as "Code Golf".
 
 Rust apparently allows for removing whitespace from code, to minify it in a
 similar way as JavaScript, another language sometimes similar to BrainFuck
@@ -28,6 +28,9 @@ which allows us to write hideously minified code.
 
 Running `rustfmt` on this suffers the whitespace penalty, but does make it more
 readable.
+
+[1]:
+    https://web.archive.org/web/20230914220048if_/https://i.pinimg.com/736x/b4/fb/cd/b4fbcdd779d811a2b2493a0d7b3929a2--fantasy-quotes-monty-python.jpg
 */
 fn main() {for i in 1..101{let f=i%3==0;let b=i%5==0;let fb=f&&b;if f{print!("Fizz");}if b{print!("Buzz");}if !fb&&!f&&!b{print!("{i}");}println!();}}
 
