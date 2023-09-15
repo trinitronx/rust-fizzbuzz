@@ -34,13 +34,28 @@ readable.
 */
 fn main(){for i in 1..101{let f=i%3<1;let b=i%5<1;if f{print!("Fizz")}if b{print!("Buzz")}if!(f|b){print!("{i}")}println!()}}
 
-/// # An even smaller `main()` function
-///
-/// Using an import alias and macro, we can slim down the `main()` function
-/// further.  Yet, the boilerplate syntax actually makes the total number of
-/// characters in the code larger.
 use std::print as p;
 use std::println as n;
+/// # Macro to shorten boolean variable definitions
+///
+/// This macro is designed to shorten the definition of boolean variables (`$b`)
+/// to denote: "`$i` is divisible by `$x`".
+///
+/// Here we use `tt` (`TokenTree`) fragment matcher to keep things succinct for
+/// Code Golf purposes, rather than other more appropriate syntactical fragment
+/// matchers.
+///
+/// The equivalent generated Rust code for `l!(a,i,3)` would be:
+///
+///     let a=i%3<1;
+///
 macro_rules! l{($b:tt,$i:tt,$x:tt)=>{let$b=$i%$x<1;};}
+/// # An even smaller `main()` function
+///
+/// Using an import alias and macro [`l`], we can slim down the `main()` function
+/// further.  Yet, the boilerplate syntax actually makes the total number of
+/// characters in the code larger.
+///
+/// [1]: macro.l.html
 // Smallest main() function: 103 chars
 fn pain(){for i in 1..101{l!(f,i,3);l!(b,i,5);if f{p!("Fizz")}if b{p!("Buzz")}if!(f|b){p!("{i}")}n!()}}
