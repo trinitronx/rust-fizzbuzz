@@ -31,6 +31,10 @@ jobs:
                 command: doc
                 args: --all --no-deps
 
+            - name: Add redirect to project docs index page
+              run: >
+                echo "<meta http-equiv=\"refresh\" content=\"0; url=fizzbuzz\">" > target/doc/index.html
+
             - name: Deploy
               uses: peaceiris/actions-gh-pages@v3
               with:
